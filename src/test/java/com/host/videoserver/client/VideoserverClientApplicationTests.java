@@ -1,4 +1,4 @@
-package com.host.videoserver_client;
+package com.host.videoserver.client;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;

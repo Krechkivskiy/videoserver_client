@@ -1,7 +1,7 @@
-package com.host.videoserver_client.service;
+package com.host.videoserver.client.service;
 
-import com.host.videoserver_client.entity.User;
-import com.host.videoserver_client.repository.UserDao;
+import com.host.videoserver.client.entity.User;
+import com.host.videoserver.client.repository.UserDao;
 import org.springframework.stereotype.Service;
 
 import java.util.List;

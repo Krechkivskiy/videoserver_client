@@ -1,6 +1,6 @@
-package com.host.videoserver_client.service;
+package com.host.videoserver.client.service;
 
-import com.host.videoserver_client.entity.User;
+import com.host.videoserver.client.entity.User;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;

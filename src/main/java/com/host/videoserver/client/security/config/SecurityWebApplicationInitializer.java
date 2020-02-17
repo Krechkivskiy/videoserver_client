@@ -1,4 +1,4 @@
-package com.host.videoserver_client.security.config;
+package com.host.videoserver.client.security.config;
 
 import org.springframework.security.web.context.AbstractSecurityWebApplicationInitializer;
 

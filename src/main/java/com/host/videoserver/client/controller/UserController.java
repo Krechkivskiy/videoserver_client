@@ -1,8 +1,7 @@
-package com.host.videoserver_client.controller;
+package com.host.videoserver.client.controller;
 
-
-import com.host.videoserver_client.entity.User;
-import com.host.videoserver_client.service.UserService;
+import com.host.videoserver.client.entity.User;
+import com.host.videoserver.client.service.UserService;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.ModelAttribute;

@@ -1,13 +1,14 @@
-package com.host.videoserver_client.controller;
+package com.host.videoserver.client.controller;
 
-import com.host.videoserver_client.entity.Role;
-import com.host.videoserver_client.entity.User;
-import com.host.videoserver_client.service.UserService;
+import com.host.videoserver.client.entity.Role;
+import com.host.videoserver.client.entity.User;
+import com.host.videoserver.client.service.UserService;
 import org.springframework.security.core.annotation.AuthenticationPrincipal;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 
 import javax.annotation.PostConstruct;
+import java.util.Arrays;
 
 @Controller
 public class InitController {
@@ -23,11 +24,11 @@ public class InitController {
         User admin = new User();
         admin.setEmail("admin");
         admin.setPassword("admin");
-        admin.setRole(Role.ROLE_ADMIN);
+        admin.setRoles(Arrays.asList(new Role[]{new Role("admin")}));
         User user = new User();
         user.setEmail("user");
         user.setPassword("user");
-        user.setRole(Role.ROLE_USER);
+        admin.setRoles(Arrays.asList(new Role[]{new Role("user")}));
         userService.save(admin);
         userService.save(user);
     }
@@ -39,7 +40,8 @@ public class InitController {
 
     @GetMapping("/access/define")
     public String accessDefine(@AuthenticationPrincipal User user) {
-        if (user.getRole().name().equals("ROLE_ADMIN")) {
+        if (user.getRoles().stream().anyMatch(role -> role.getUniqueCode().equals("ROLE_ADMIN"))) {
+            //todo send http request to get server token
             return "user_profile";
         } else {
             return "admin_panel";
