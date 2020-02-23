@@ -19,10 +19,10 @@ For user. How to start? The description will be implemented later after deployme
 
 For developer
 
-clone client application
+Clone client application
 git clone https://github.com/svistylin/videoserver_client.git
 
-clone server application
+Clone server application
 https://github.com/svistylin/videohost_server.git
 
 Open both projects IntelliJ IDEA or other development enviroment
@@ -33,12 +33,12 @@ https://hub.docker.com/r/mysql/mysql-server/
 
 Required by default project configuration db username: root, password: 12345
 
-create databases  "video_server" and "videohost_client"
+Create databases  "video_server" and "videohost_client"
 
 Run VideohostServerApplication.class and then  VideoserverClientApplication.class
 
-in your browser input url localhost:8080
+In your browser input url localhost:8080
 
-default user account 
+Default user account 
 login:admin 
 password:admin
