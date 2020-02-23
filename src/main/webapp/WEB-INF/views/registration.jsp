@@ -30,8 +30,6 @@
     <style>
         <%@include file="/WEB-INF/views/assets/css/slicknav.min.css" %>
     </style>
-
-
     <!-- Favicon -->
     <link rel="shortcut icon" type="image/png" href="assets/img/icon/favicon.ico">
     <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
@@ -44,12 +42,9 @@
 
 <body>
 
-<!-- preloader area start -->
 <div id="preloader">
     <div class="spinner"></div>
-</div>
-<!-- preloader area end -->
-<!-- header area start -->
+
 <header id="header">
     <div class="header-area">
         <div class="container">
@@ -80,16 +75,18 @@
 <section class="slider-area" id="home">
     <div class="container">
         <div class="col-md-6 col-sm-6 hidden-xs">
-            <form action='<spring:url value="/signin"/>' method="post">
-                <input type="text" name="email">
-                <input type="password" name="password">
-                <input  type="submit">
+            <form action='<spring:url value="/registration"/>' method="post">
+               <br> <input type="text" name="email"><br>
+                <br><input type="password" name="password"></br>
+                <br><input type="text" name="surname"></br>
+               <br> <input type="text" name="lastname"></br>
+               <br> <input  type="submit"></br>
             </form>
         </div>
         <div>
-            <a href="/registration"> <h4>Регистрация</h4></a>
+            <a href="/">  <h4>На главную</h4></a>
         </div>
     </div>
+</section>
 </body>
-
 </html>
