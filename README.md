@@ -1,4 +1,4 @@
-#VideoHost client
+# VideoHost client
 
 Project is part of platform for upload own videos and watching videos from other users.
 
