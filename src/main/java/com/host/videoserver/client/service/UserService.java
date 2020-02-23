@@ -1,36 +1,49 @@
 package com.host.videoserver.client.service;
 
 import com.host.videoserver.client.entity.User;
-import com.host.videoserver.client.repository.UserDao;
+import com.host.videoserver.client.entity.command.UserCreateUpdateCommand;
+import com.host.videoserver.client.repository.UserRepository;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.NoSuchElementException;
 import java.util.Optional;
 
 @Service
 public class UserService {
-    
-    private final UserDao userDao;
 
-    public UserService(UserDao userDao) {
-        this.userDao = userDao;
+    private final UserRepository userRepository;
+    private final BCryptPasswordEncoder passwordEncoder;
+
+    public UserService(UserRepository userRepository, BCryptPasswordEncoder passwordEncoder) {
+        this.userRepository = userRepository;
+        this.passwordEncoder = passwordEncoder;
     }
 
-    public void save(User user) {
-        userDao.save(user);
+    public void save(UserCreateUpdateCommand command) {
+        command.setPassword(passwordEncoder.encode(command.getPassword()));
+        userRepository.save(command.toUser());
     }
-
 
     public List<User> getAllUsers() {
-        return userDao.findAll();
+        return userRepository.findAll();
     }
 
 
     public Optional<User> check(String email) {
-        return Optional.ofNullable(userDao.findByEmail(email));
+        return Optional.ofNullable(userRepository.findByEmail(email));
     }
 
-    public void deleteUser(int id) {
-        userDao.deleteById(id);
+    public void deleteUser(Long id) {
+        userRepository.deleteById(id);
+    }
+
+    public User findById(Long id) {
+        return userRepository.findById(id).orElseThrow(NoSuchElementException::new);
+    }
+
+    public User update(User userFromDb) {
+        return userRepository.save(userFromDb);
     }
 }
