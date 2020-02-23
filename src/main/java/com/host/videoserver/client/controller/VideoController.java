@@ -97,7 +97,6 @@ public class VideoController {
         return modelAndView;
     }
 
-
     @GetMapping("/upload")
     public String uploadVideoPage() {
         return "upload";
