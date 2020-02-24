@@ -6,6 +6,7 @@ import com.host.videoserver.client.entity.Video;
 import com.host.videoserver.client.repository.VideoRepository;
 import org.springframework.stereotype.Service;
 
+import java.util.Collections;
 import java.util.List;
 
 @Service
@@ -39,6 +40,6 @@ public class VideoServiceImpl implements VideoService {
 
     @Override
     public List<Video> getLastUploadedVideos(Period period) {
-        return null;
+        return Collections.emptyList();
     }
 }
